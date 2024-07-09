@@ -1,7 +1,7 @@
 resource "aws_launch_configuration" "web_server_as" {
-    image_id           = "ami-0eaf7c3456e7b5b68"
+    image_id           = "ami-0195204d5dce06d99"
     instance_type = "t2.micro"
-    key_name = "docker-pipeline"
+    key_name = "my-deployment"
 }
    
 
@@ -9,7 +9,7 @@ resource "aws_launch_configuration" "web_server_as" {
   resource "aws_elb" "web_server_lb"{
      name = "web-server-lb"
      security_groups = [aws_security_group.web_server.id]
-     subnets = ["subnet-01801d057d263ad13", "subnet-0bcc1a1ec83ddb757"]
+     subnets = ["subnet-091181ddee91f5606", "subnet-0d28a8084902b3a92"]
      listener {
       instance_port     = 8000
       instance_protocol = "http"
